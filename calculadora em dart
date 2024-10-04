@@ -1,0 +1,30 @@
+import 'dart:io';
+
+void main() {
+  print('Calculadora de IMC');
+
+  // Entrada de dados do usuário
+  stdout.write('Digite seu peso em kg: ');
+  double peso = double.parse(stdin.readLineSync()!);
+
+  stdout.write('Digite sua altura em metros: ');
+  double altura = double.parse(stdin.readLineSync()!);
+
+  // Cálculo do IMC
+  double imc = peso / (altura * altura);
+  print('Seu IMC é: ${imc.toStringAsFixed(2)}');
+
+  // Classificação do IMC
+  String classificacao;
+  if (imc < 18.5) {
+    classificacao = 'Abaixo do peso';
+  } else if (imc < 24.9) {
+    classificacao = 'Peso normal';
+  } else if (imc < 29.9) {
+    classificacao = 'Sobrepeso';
+  } else {
+    classificacao = 'Obesidade';
+  }
+
+  print('Classificação: $classificacao');
+}
